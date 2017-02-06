@@ -1,28 +1,59 @@
 ---
 layout: default
+title: Jekyll Themes
 ---
-{% assign posts_count = (paginator.posts | size) %}
 
-<div class="home">
-  {% if posts_count > 0 %}
-    <div class="posts">
-      {% for post in paginator.posts %}
-        <div class="post py3">
-          <p class="post-meta">{{ post.date | date: site.date_format }}</p>
-          <a href="{{ post.url | prepend: site.baseurl }}" class="post-link"><h3 class="h1 post-title">{{ post.title }}</h3></a>
-          <p class="post-summary">
-            {% if post.summary %}
-              {{ post.summary }}
-            {% else %}
-              {{ post.excerpt }}
-            {% endif %}
-          </p>
-        </div>
-      {% endfor %}
-    </div>
-
-    {% include pagination.html %}
-  {% else %}
-    <h1 class='center'>{{ site.text.index.coming_soon }}</h3>
-  {% endif %}
+<div class="gallery">
+	{% for post in paginator.posts %}
+		<div class="item">
+			<a class="item-inner" href="{{ post.url }}">
+				<div class="item-image"><img src="/thumbnails/{{ post.thumbnail }}"></div>
+				<div class="item-name">{{ post.title }}</div>
+			</a>
+		</div>
+	{% endfor %}
 </div>
+
+<!-- Pager -->
+
+<div class="row-fluid">
+  <div class="span12">
+    <div class="pagination">
+      <ul>
+        {% if paginator.previous_page %}
+
+          {% if paginator.previous_page == 1 %}
+            <li><a href="/">Prev</a></li>
+          {% else %}
+            <li><a href="/page{{ paginator.previous_page }}">Prev</a></li>
+          {% endif %}
+
+        {% else %}
+          <li><span class="disabled">Prev</span></li>
+        {% endif %}
+
+        {% if paginator.page == 1 %}
+          <li><span class="active">1</span></li>
+        {% else %}
+          <li><a href="/">1</a></li>
+        {% endif %}
+
+        {% for count in (2..paginator.total_pages) %}
+
+          {% if count == paginator.page %}
+            <li><span class="active">{{ count }}</span></li>
+          {% else %}
+            <li><a href="/page{{ count }}">{{ count }}</a></li>
+          {% endif %}
+        {% endfor %}
+
+        {% if paginator.next_page %}
+          <li><a href="/page{{ paginator.next_page }}">Next</a></li>
+        {% else %}
+          <li><span class="disabled">Next</span></li>
+        {% endif %}
+      </ul>
+    </div>
+  </div>
+</div>
+
