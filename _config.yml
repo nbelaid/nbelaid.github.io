@@ -5,8 +5,8 @@ author:      user849017
 description: "A portfolio Web site about Data Science, Big Data..."
 baseurl:     ""
 url:         "http://user849017.github.io"
-#date_format: "%b %-d, %Y"
-date_format: "%d/%m/%Y"
+#date_format: "%b %-d, %Y"  "%d/%m/%Y"
+date_format: "%d %B %Y"
 
 # Google services
 google_verification:
