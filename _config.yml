@@ -2,10 +2,11 @@
 title:       Nabil ...
 email:       mail849017@gmail.com
 author:      user849017
-description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
+description: "A portfolio Web site about Data Science, Big Data..."
 baseurl:     ""
 url:         "http://user849017.github.io"
-date_format: "%b %-d, %Y"
+#date_format: "%b %-d, %Y"
+date_format: "%d/%m/%Y"
 
 # Google services
 google_verification:
@@ -29,7 +30,7 @@ enable_anchorjs: false
 # Facebook Page integration
 # (for instant articles and other stuff)
 fb_page: false
-fb_page_id: 
+fb_page_id:
 
 # Disqus post comments
 # (leave blank to disable Disqus)
