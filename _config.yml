@@ -1,7 +1,7 @@
 # Site settings
-title:       Pixyll
-email:       your_email@example.com
-author:      Other
+title:       Nabil ...
+email:       mail849017@gmail.com
+author:      user849017
 description: "A simple, beautiful theme for Jekyll that emphasizes content rather than aesthetic fluff."
 baseurl:     ""
 url:         "http://my_url.com"
@@ -91,10 +91,10 @@ text:
   index:
     coming_soon: 'Coming soon...'
   contact:
-    email:    'Email Address'
-    content:  'What would you like to say?'
+    email:    'Email Address...'
+    content:  'Message...'
     subject:  'New submission!'
-    submit:   'Say Hello'
+    submit:   'Send'
     ajax:
       sending:  'sending..'
       sent:     'Message sent!'
