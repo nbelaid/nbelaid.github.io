@@ -1,21 +1,14 @@
-Jekyll Themes
-=============
+# Minimal Theme
 
-A directory of the best-looking themes for Jekyll blogs
+[Demo the Theme](http://orderedlist.github.com/minimal/)
 
+This is the raw HTML and styles that are used for the *minimal* theme on [GitHub Pages](http://pages.github.com/).
 
-Submitting a Theme
-------------------
+Syntax highlighting is provided on GitHub Pages by [Pygments](http://pygments.org).
 
-Have a theme you want to share?
+# License
 
-* Fork the site on GitHub
-* Create a new post in the `_posts` directory and fill out the relevant YAML fields
-* Make a 250x200 thumbnail and drop it in the thumbnails directory. List its filename in the post's markdown file.
-* Test it out, then push your changes up and open a pull request.
+This work is licensed under a [Creative Commons Attribution-ShareAlike 3.0 Unported License](http://creativecommons.org/licenses/by-sa/3.0/).
 
 
-License
--------
 
-The contents of this repository are licensed under the [GNU Public License.](http://www.gnu.org/licenses/gpl-3.0.html)
