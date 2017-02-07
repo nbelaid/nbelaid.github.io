@@ -11,7 +11,7 @@ gems:
 #baseurl: "/projectname"
 url: "http://user849017.github.io"
 enforce_ssl: ""
-baseurl: "/jekyllBasic"
+#baseurl: "/jekyllBasic"
 
 # Title of website
 title: Nabil BELAID
@@ -29,6 +29,7 @@ desc: A portfolio about Data Science (desc).
 avatar: "/img/avatar.jpg"
 
 # List of links in the navigation bar
+#@nb... see here: http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_navigation
 nav-links:
   Home: ""
   About Me: "aboutme"
