@@ -1,19 +1,94 @@
-name: Nabil BELAID
-url: http://user849017.github.io
-#title: Nabil BELAID
-author: user849017
-email: mail849017@gmail.com
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-#baseurl: "/minima"
-#twitter_username: jekyllrb
-github_username:  user849017
-
 # Build settings
+# Gems
+gems:
+- jekyll-paginate
+- jekyll-feed
+
+# url is the full website URL
+# baseurl is the website's URL without the hostname
+# If you are hosting it on Github for some project with name 'projectname', then the url and baseurl should look like:
+#url: "http://username.github.io/projectname"
+#baseurl: "/projectname"
+url: "http://user849017.github.io"
+enforce_ssl: ""
+baseurl: "/jekyllBasic"
+
+# Title of website
+title: Nabil BELAID
+
+#Default keywords (used if no keywords are specified on a page basis)
+keywords: Data-Science, Big-Data
+
+# Short description of your site
+desc: A portfolio about Data Science (desc).
+
+# --- Navigation bar options --- #
+
+# Image to show in the navigation bar - image must be a square (width = height)
+# Remove this parameter if you don't want an image in the navbar
+avatar: "/img/avatar.jpg"
+
+# List of links in the navigation bar
+nav-links:
+  Home: ""
+  About Me: "aboutme"
+  Contact: "contact"
+
+# --- Footer options --- #
+
+# If the values are empty, they are ignored
+profile:
+  name: Nabil BELAID
+  email: mail849017@gmail.com
+  facebook: your-fb-id
+  github: https://github.com/user849017/
+  twitter: your-twitter-id
+  linkedin: your-linkedin-id
+  stackoverflow: your-stackoverflow-id
+
+# To display link in the footer section
+pretty-url: "http://user849017.github.io"
+
+# --- Misc --- #
+
+# Your Disqus profile (shortname) settings
+disqus: "Your-Disqus-Id"
+
+# Google Analytics Settings
+google_analytics: "Your-GA-Id"
+
+# Set these options as you need (For more information, check Jekyll's site)
+timezone: "Europe/Paris"
 markdown: kramdown
-theme: minima
+#highlighter: rouge
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+permalink: /blog/:title
+paginate: 5
+
+# Default YAML values (more information on Jekyll's site)
+defaults:
+  -
+    scope:
+      path: ""
+      type: "posts"
+    values:
+      comments: true  # add comments to all blog posts
+  -
+    scope:
+      path: "" # all files
+    values:
+      layout: "default"
+      show-avatar: true
+
+# Exclude these files from production site
 exclude:
   - Gemfile
   - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+
+created-by: Nabil BELAID
+creator-url: http://user849017.github.io
