@@ -32,8 +32,9 @@ avatar: "/img/avatar.jpg"
 #@nb... see here: http://rmarkdown.rstudio.com/rmarkdown_websites.html#site_navigation
 nav-links:
   Home: ""
-  About Me: "aboutme"
-  Contact: "contact"
+  About Me: "web/about"
+  Test: "web/ex.html"
+  Contact: "web/contact"
 
 # --- Footer options --- #
 

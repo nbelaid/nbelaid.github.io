@@ -3,8 +3,7 @@ layout: template1
 comments: false
 ---
 
-Feel like writing something to me?!<br/>
-Use the below form and feel free to shoot a message! :)
+For any question or comment, please contact me here.
 
 <div class="panel panel-default shadow1">
       <div class="panel-heading">
@@ -24,14 +23,14 @@ Use the below form and feel free to shoot a message! :)
                         <label for="msg" class="control-label">Your message</label>
                         <textarea id="msg" name="message" class="form-control"></textarea>
                   </div>
-                
+
                   <input type="text" name="_gotcha" style="display:none" />
-                  <input type="submit" value="Shoot!" class="btn btn-primary">
+                  <input type="submit" value="Send" class="btn btn-primary">
             </form>
       </div>
 </div>
 
 <script>
     var contactform =  document.getElementById('contactform');
-    contactform.setAttribute('action', '//formspree.io/' + 'bchetty' + '@' + 'somemail' + '.' + 'com');
+    contactform.setAttribute('action', '//formspree.io/{{ site.profile.email }}');
 </script>

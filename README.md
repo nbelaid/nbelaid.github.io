@@ -1,3 +1,3 @@
-# mytitle
+# About
 
-A description...
+This Web site is about some of my activities.
