@@ -15,10 +15,8 @@ enforce_ssl: ""
 
 # Title of website
 title: Nabil BELAID
-
 #Default keywords (used if no keywords are specified on a page basis)
 keywords: Data-Science, Big-Data
-
 # Short description of your site
 desc: A portfolio about Data Science (desc).
 
