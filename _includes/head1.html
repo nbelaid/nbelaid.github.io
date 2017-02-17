@@ -9,34 +9,34 @@
     <meta name="description" content="{% if page.desc %}{{ page.desc }}{% else %}{{ site.desc }}{% endif %}">
     <meta name="author" content="{{ site.profile.name }}" />
     <meta name="keywords" content="{% if page.keywords %}{{ page.keywords }}{% else %}{{ site.keywords }}{% endif %}">
-        
-    <link rel="icon" href="{{ site.baseurl }}/assets/img/favicon.ico">
+
+    <link rel="icon" href="{{ site.baseurl }}/libs/img/favicon.ico">
     <title>{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}</title>
-    
+
     <link rel="alternate" type="application/rss+xml" title="{{ site.title }} - {{ site.description }}" href="{{ site.baseurl }}/feed.xml" />
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ site.baseurl }}/assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/libs/other/css/bootstrap.min.css" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
-    <link href="{{ site.baseurl }}/assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/libs/other/css/ie10-viewport-bug-workaround.css" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ site.baseurl }}/assets/css/custom.css" rel="stylesheet">
-    
+    <link href="{{ site.baseurl }}/libs/other/css/custom.css" rel="stylesheet">
+
     <!-- Styles for 'Syntax Highlighting' of code -->
-    <link href="{{ site.baseurl }}/assets/css/syntax.css" rel="stylesheet">
+    <link href="{{ site.baseurl }}/libs/other/css/syntax.css" rel="stylesheet">
 
     <!-- Just for debugging purposes. Don't actually copy these 2 lines! -->
-    <!--[if lt IE 9]><script src="../../assets/js/ie8-responsive-file-warning.js"></script><![endif]-->
-    <script src="{{ site.baseurl }}/assets/js/ie-emulation-modes-warning.js"></script>
+    <!--[if lt IE 9]><script src="../../libs/other/js/ie8-responsive-file-warning.js"></script><![endif]-->
+    <script src="{{ site.baseurl }}/libs/other/js/ie-emulation-modes-warning.js"></script>
 
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
       <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
-    
+
     <!-- Facebook OpenGraph tags -->
     <meta property="og:title" content="{% if page.title %}{{ page.title }}{% else %}{{ site.title }}{% endif %}" />
     <meta property="og:type" content="website" />
