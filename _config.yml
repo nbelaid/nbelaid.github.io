@@ -9,7 +9,8 @@ gems:
 # If you are hosting it on Github for some project with name 'projectname', then the url and baseurl should look like:
 #url: "http://username.github.io/projectname"
 #baseurl: "/projectname"
-url: "http://user849017.github.io"
+
+url: "http://nbelaid.github.io"
 enforce_ssl: ""
 #baseurl: "/jekyllBasic"
 
@@ -41,13 +42,13 @@ profile:
   name: Nabil BELAID
   email: mail849017@gmail.com
   facebook: your-fb-id
-  github: https://github.com/user849017/
+  github: https://github.com/nbelaid/
   twitter: your-twitter-id
-  linkedin: your-linkedin-id
+  linkedin: "https://www.linkedin.com/in/nabil-belaid/"
   stackoverflow: your-stackoverflow-id
 
 # To display link in the footer section
-pretty-url: "http://user849017.github.io"
+pretty-url: "http://nbelaid.github.io"
 
 # --- Misc --- #
 
@@ -91,4 +92,4 @@ exclude:
   - CNAME
 
 created-by: Nabil BELAID
-creator-url: http://user849017.github.io
+creator-url: http://nbelaid.github.io

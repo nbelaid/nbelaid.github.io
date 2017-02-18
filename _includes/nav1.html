@@ -10,7 +10,7 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="{{ site.url }}">{{ site.title }}</a>
+      <a class="navbar-brand" href="{{ site.baseurl }}/index.html">{{ site.title }}</a>
     </div>
 
     <div id="navbar-main" class="navbar-collapse collapse">
@@ -18,11 +18,14 @@
       </ul> -->
       <ul class="nav navbar-nav navbar-right">
 
+        <li><a href="{{ site.baseurl }}/index.html">Home</a></li>
+
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Work<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li class="dropdown-header">Examples</li>
-            <li><a href="{{ site.baseurl }}/web/us_sat.html">American SAT (python)</a></li>
+            <li class="dropdown-header">Case studies</li>
+            <!-- based on this link: https://www.dataquest.io/blog/data-science-portfolio-project/ -->
+            <li><a href="{{ site.baseurl }}/web/us_sat.html">US Scholastic Aptitude Test (python)</a></li>
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">On going work</li>
             <li><a href="{{ site.baseurl }}/web/ex.html">ex with menu</a></li>
@@ -32,11 +35,11 @@
         <li class="dropdown">
           <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Data<span class="caret"></span></a>
           <ul class="dropdown-menu">
-            <li><a href="{{ site.baseurl }}/web/us_sat_data.html">American SAT</a></li>
+            <li><a href="{{ site.baseurl }}/web/us_sat_data.html">US Scholastic Aptitude Test (Data)</a></li>
           </ul>
         </li>
 
-        <li><a href="{{ site.baseurl }}/web/about">About</a></li>
+        <li><a href="{{ site.baseurl }}/web/about.html">About</a></li>
 
         <li><a href="{{ site.baseurl }}/web/contact">Contact</a></li>
 
@@ -48,7 +51,8 @@
             <li role="separator" class="divider"></li>
             <li class="dropdown-header">ex header 2</li>
             <li><a href="{{ site.baseurl }}/web/template_rstudio.html">template rstudio</a></li>
-            <li><a href="{{ site.baseurl }}/web/template_jupyter.html">template jupyter</a></li>
+            <li><a href="{{ site.baseurl }}/web/template_jupyter.html">template jupyter (html)</a></li>
+            <li><a href="{{ site.baseurl }}/web/template_jupyter2">template jupyter (md)</a></li>
             <li><a href="{{ site.baseurl }}/web/template_data.html">template data</a></li>
           </ul>
         </li>

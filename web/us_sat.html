@@ -7,588 +7,2055 @@ layout: template2
 </div>
 <br/><br/><br/> -->
 
+<!-- <div class="page-header">
+  <h1>American SAT <small>Case study on ...</small></h1>
+</div> -->
+
+
 <!-- setup 3col/9col grid for toc_float and main content  -->
 <div class="row-fluid">
+
   <div class="col-xs-12 col-sm-4 col-md-3">
     <div id="TOC" class="tocify">
     </div>
   </div>
 
   <div class="toc-content col-xs-12 col-sm-8 col-md-9">
-
-        <div class="cell border-box-sizing text_cell rendered">
-        <div class="prompt input_prompt">
-        </div>
-        <div class="inner_cell">
-        <div class="text_cell_render border-box-sizing rendered_html">
-        <h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h1><p>(expliquer ce sur quoi porte cette article)
-        In this article, ...</p>
-        <p>we are looking at the SAT scores of high schoolers in the US along with other information. The SAT (Scholastic Aptitude Test) is a test that high schoolers take in the US before applying to college. Colleges take the test scores into account when making admissions decisions, so it is fairly important. The test is divided into 3 sections, each of which is scored out of 800 points. The total score is out of 2400...
-        High schools are often ranked by their average SAT scores, and high SAT scores are considered a sign of how good a school district is.</p>
-        <p>There have been allegations about the SAT being unfair to certain racial groups in the US. Doing this analysis on New York City data will help shed some light on the fairness of the SAT.</p>
-
-        </div>
-        </div>
-        </div>
-        <div class="cell border-box-sizing code_cell rendered">
-        <div class="input">
-        <div class="prompt input_prompt">In&nbsp;[2]:</div>
-        <div class="inner_cell">
-            <div class="input_area">
-        <div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-        <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-        </pre></div>
-
-        </div>
-        </div>
-        </div>
-
-        </div>
-        <div class="cell border-box-sizing text_cell rendered">
-        <div class="prompt input_prompt">
-        </div>
-        <div class="inner_cell">
-        <div class="text_cell_render border-box-sizing rendered_html">
-        <h1 id="Data-description">Data description<a class="anchor-link" href="#Data-description">&#182;</a></h1>
-        </div>
-        </div>
-        </div>
-        <div class="cell border-box-sizing code_cell rendered">
-        <div class="input">
-        <div class="prompt input_prompt">In&nbsp;[12]:</div>
-        <div class="inner_cell">
-            <div class="input_area">
-        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
-        </pre></div>
-
-        </div>
-        </div>
-        </div>
-
-        </div>
-        <div class="cell border-box-sizing text_cell rendered">
-        <div class="prompt input_prompt">
-        </div>
-        <div class="inner_cell">
-        <div class="text_cell_render border-box-sizing rendered_html">
-        <h2 id="SAT-scores-by-school">SAT scores by school<a class="anchor-link" href="#SAT-scores-by-school">&#182;</a></h2><p>The most recent school level results for New York City on the SAT. Results are available at the school level for the graduating seniors of 2012. Records contain 2012 College-bound seniors mean SAT scores taken during SY 2012.</p>
-
-        </div>
-        </div>
-        </div>
-        <div class="cell border-box-sizing code_cell rendered">
-        <div class="input">
-        <div class="prompt input_prompt">In&nbsp;[19]:</div>
-        <div class="inner_cell">
-            <div class="input_area">
-        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sat_results&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Data/us_sat/</span><span class="si">{0}</span><span class="s2">.csv&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;SAT_Results&quot;</span><span class="p">))</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;sat_results&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-        </pre></div>
-
-        </div>
-        </div>
-        </div>
-
-        <div class="output_wrapper">
-        <div class="output">
+    <div class="page-header">
+      <h1 class="title toc-ignore">US Scholastic Aptitude Test <br/>
+        <small>Case study: some influential factors.</small>
+      </h1>
+    </div>
 
 
-        <div class="output_area">
-        <div class="prompt output_prompt">Out[19]:</div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h1 id="Introduction">Introduction<a class="anchor-link" href="#Introduction"></a></h1><p>In this post, we are looking at the SAT (Scholastic Aptitude Test) scores of high schoolers in the US along with other informations.
+    We will use <code>Python</code> for the data analysis.</p>
+    <p>The SAT is a test that high schoolers take in the US before applying to college so it is fairly important.
+    Moreover, SAT scores are used to indicate how good a school district is.
+    There have been allegations about the SAT being unfair (to certain ethnic groups in the US for example).
+    Doing this analysis on New York City data will help shed some light on the fairness of the SAT.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h2 id="Credits">Credits<a class="anchor-link" href="#Credits"></a></h2><p>This case study is based on an article of <a href="https://twitter.com/vikparuchuri" title="@vikparuchuri">Vik Paruchuri</a>.
+    I thank him for this example.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h2 id="Pre-analysis">Pre-analysis<a class="anchor-link" href="#Pre-analysis"></a></h2><p>In order to investigate the relation between the SAT and other factors such the ethnic groups or class sizes, we need data.
+    In the Web site of the city of New York, we can find many data sets from which these have been selected:</p>
+    <ul>
+    <li><b>SAT results</b> by school (more information and download <a href="https://data.cityofnewyork.us/Education/SAT-Results/f9bf-2cp4">here</a>).</li>
+    <li>School <b>demographics</b> (more information and download <a href="https://data.cityofnewyork.us/Education/School-Demographics-and-Accountability-Snapshot-20/ihfw-zy9j">here</a>).</li>
+    <li><b>Class size</b> at the school level (more information and download <a href="https://data.cityofnewyork.us/Education/2010-2011-Class-Size-School-level-detail/urz7-pzb3">here</a>).</li>
+    </ul>
+    <p>In what follows, we have a look on the data sets.
+    Then, we clean and unify all the individual datasets into a single one in order to work with the data more easily.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h1 id="Data-description">Data description<a class="anchor-link" href="#Data-description"></a></h1><p>In this section, we explore retrieved the data sets.
+    In order to achieve this, we load them into data frames.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[33]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#in order to analyse the data sets, we load them into Python data frames (pandas and numpy libraries)</span>
+    <span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+    <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[34]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#initialize the array that will contain the different data sets</span>
+    <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h2 id="SAT-scores-by-school">SAT scores by school<a class="anchor-link" href="#SAT-scores-by-school"></a></h2><p>This data set contains the most recent school level results for New York City on the SAT.
+    Results are available at the school level.</p>
+    <p>It is to be noticed that the SAT test is divided into 3 sections, each of which is scored out of 800 points (last 3 columns).
+    The total score is out of 2400.</p>
+    <p><b>Full data</b> can be viewed <a href="{{ site.baseurl }}/web/us_sat_data.html#div-us_sat-sat_results">here</a>.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[35]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#read csv file and show the data head</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;sat_results&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/us_sat/</span><span class="si">{0}</span><span class="s2">.csv&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;SAT_Results&quot;</span><span class="p">))</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;sat_results&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
 
 
-        <div class="output_html rendered_html output_subarea output_execute_result">
-        <div>
-        <table border="1" class="dataframe">
-          <thead>
-            <tr style="text-align: right;">
-              <th></th>
-              <th>DBN</th>
-              <th>SCHOOL NAME</th>
-              <th>Num of SAT Test Takers</th>
-              <th>SAT Critical Reading Avg. Score</th>
-              <th>SAT Math Avg. Score</th>
-              <th>SAT Writing Avg. Score</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>0</th>
-              <td>01M292</td>
-              <td>HENRY STREET SCHOOL FOR INTERNATIONAL STUDIES</td>
-              <td>29</td>
-              <td>355</td>
-              <td>404</td>
-              <td>363</td>
-            </tr>
-            <tr>
-              <th>1</th>
-              <td>01M448</td>
-              <td>UNIVERSITY NEIGHBORHOOD HIGH SCHOOL</td>
-              <td>91</td>
-              <td>383</td>
-              <td>423</td>
-              <td>366</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>01M450</td>
-              <td>EAST SIDE COMMUNITY SCHOOL</td>
-              <td>70</td>
-              <td>377</td>
-              <td>402</td>
-              <td>370</td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td>01M458</td>
-              <td>FORSYTH SATELLITE ACADEMY</td>
-              <td>7</td>
-              <td>414</td>
-              <td>401</td>
-              <td>359</td>
-            </tr>
-            <tr>
-              <th>4</th>
-              <td>01M509</td>
-              <td>MARTA VALLE HIGH SCHOOL</td>
-              <td>44</td>
-              <td>390</td>
-              <td>433</td>
-              <td>384</td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        </div>
-
-        </div>
-
-        </div>
-        </div>
-
-        </div>
-        <div class="cell border-box-sizing text_cell rendered">
-        <div class="prompt input_prompt">
-        </div>
-        <div class="inner_cell">
-        <div class="text_cell_render border-box-sizing rendered_html">
-        <h2 id="2010-2011-Class-Size---School-level-detail">2010-2011 Class Size - School-level detail<a class="anchor-link" href="#2010-2011-Class-Size---School-level-detail">&#182;</a></h2><p>Average class sizes for each school, by grade and program type (General Education, Self-Contained Special Education, Collaborative Team Teaching (CTT)) for grades K-9 (where grade 9 is not reported by subject area), and for grades 5-9 (where available) and 9-12, aggregated by program type (General Education, CTT, and Self-Contained Special Education) and core course (e.g. English 9, Integrated Algebra, US History, etc.).</p>
-        <p>Class size data is based on January 28, 2011 data.</p>
-        <p>*Grade 9 Official Class data is included for 0K-09 schools. Core Course information for these sections is not reported.</p>
-        <p>link to the data: <a href="https://data.cityofnewyork.us/Education/2010-2011-Class-Size-School-level-detail/urz7-pzb3">https://data.cityofnewyork.us/Education/2010-2011-Class-Size-School-level-detail/urz7-pzb3</a></p>
-
-        </div>
-        </div>
-        </div>
-        <div class="cell border-box-sizing code_cell rendered">
-        <div class="input">
-        <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-        <div class="inner_cell">
-            <div class="input_area">
-        <div class=" highlight hl-ipython3"><pre><span></span>
-        </pre></div>
-
-        </div>
-        </div>
-        </div>
-
-        </div>
-        <div class="cell border-box-sizing code_cell rendered">
-        <div class="input">
-        <div class="prompt input_prompt">In&nbsp;[18]:</div>
-        <div class="inner_cell">
-            <div class="input_area">
-        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Data/us_sat/</span><span class="si">{0}</span><span class="s2">.csv&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Class_Size_-_School-level_detail&quot;</span><span class="p">))</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-        </pre></div>
-
-        </div>
-        </div>
-        </div>
-
-        <div class="output_wrapper">
-        <div class="output">
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[35]:</div>
 
 
-        <div class="output_area">
-        <div class="prompt output_prompt">Out[18]:</div>
+    <div class="output_html rendered_html output_subarea output_execute_result">
+    <div>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>DBN</th>
+          <th>SCHOOL NAME</th>
+          <th>Num of SAT Test Takers</th>
+          <th>SAT Critical Reading Avg. Score</th>
+          <th>SAT Math Avg. Score</th>
+          <th>SAT Writing Avg. Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>01M292</td>
+          <td>HENRY STREET SCHOOL FOR INTERNATIONAL STUDIES</td>
+          <td>29</td>
+          <td>355</td>
+          <td>404</td>
+          <td>363</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>01M448</td>
+          <td>UNIVERSITY NEIGHBORHOOD HIGH SCHOOL</td>
+          <td>91</td>
+          <td>383</td>
+          <td>423</td>
+          <td>366</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>01M450</td>
+          <td>EAST SIDE COMMUNITY SCHOOL</td>
+          <td>70</td>
+          <td>377</td>
+          <td>402</td>
+          <td>370</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>01M458</td>
+          <td>FORSYTH SATELLITE ACADEMY</td>
+          <td>7</td>
+          <td>414</td>
+          <td>401</td>
+          <td>359</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>01M509</td>
+          <td>MARTA VALLE HIGH SCHOOL</td>
+          <td>44</td>
+          <td>390</td>
+          <td>433</td>
+          <td>384</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h2 id="School-demographics">School demographics<a class="anchor-link" href="#School-demographics"></a></h2><p>This data set contains the annual school accounts of NYC public school student populations served by several information from which ethnicity and gender.</p>
+    <p><b>Full data</b> can be viewed <a href="{{ site.baseurl }}/web/us_sat_data.html#div-us_sat-demographics">here</a>.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[36]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#read csv file and show the data head</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;demographics&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/us_sat/</span><span class="si">{0}</span><span class="s2">.csv&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Demographics_and_Accountability&quot;</span><span class="p">))</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;demographics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
 
 
-        <div class="output_html rendered_html output_subarea output_execute_result">
-        <div>
-        <table border="1" class="dataframe">
-          <thead>
-            <tr style="text-align: right;">
-              <th></th>
-              <th>CSD</th>
-              <th>BOROUGH</th>
-              <th>SCHOOL CODE</th>
-              <th>SCHOOL NAME</th>
-              <th>GRADE</th>
-              <th>PROGRAM TYPE</th>
-              <th>CORE SUBJECT (MS CORE and 9-12 ONLY)</th>
-              <th>CORE COURSE (MS CORE and 9-12 ONLY)</th>
-              <th>SERVICE CATEGORY(K-9* ONLY)</th>
-              <th>NUMBER OF STUDENTS / SEATS FILLED</th>
-              <th>NUMBER OF SECTIONS</th>
-              <th>AVERAGE CLASS SIZE</th>
-              <th>SIZE OF SMALLEST CLASS</th>
-              <th>SIZE OF LARGEST CLASS</th>
-              <th>DATA SOURCE</th>
-              <th>SCHOOLWIDE PUPIL-TEACHER RATIO</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>0</th>
-              <td>1</td>
-              <td>M</td>
-              <td>M015</td>
-              <td>P.S. 015 Roberto Clemente</td>
-              <td>0K</td>
-              <td>GEN ED</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>19.0</td>
-              <td>1.0</td>
-              <td>19.0</td>
-              <td>19.0</td>
-              <td>19.0</td>
-              <td>ATS</td>
-              <td>NaN</td>
-            </tr>
-            <tr>
-              <th>1</th>
-              <td>1</td>
-              <td>M</td>
-              <td>M015</td>
-              <td>P.S. 015 Roberto Clemente</td>
-              <td>0K</td>
-              <td>CTT</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>21.0</td>
-              <td>1.0</td>
-              <td>21.0</td>
-              <td>21.0</td>
-              <td>21.0</td>
-              <td>ATS</td>
-              <td>NaN</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>1</td>
-              <td>M</td>
-              <td>M015</td>
-              <td>P.S. 015 Roberto Clemente</td>
-              <td>01</td>
-              <td>GEN ED</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>17.0</td>
-              <td>1.0</td>
-              <td>17.0</td>
-              <td>17.0</td>
-              <td>17.0</td>
-              <td>ATS</td>
-              <td>NaN</td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td>1</td>
-              <td>M</td>
-              <td>M015</td>
-              <td>P.S. 015 Roberto Clemente</td>
-              <td>01</td>
-              <td>CTT</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>17.0</td>
-              <td>1.0</td>
-              <td>17.0</td>
-              <td>17.0</td>
-              <td>17.0</td>
-              <td>ATS</td>
-              <td>NaN</td>
-            </tr>
-            <tr>
-              <th>4</th>
-              <td>1</td>
-              <td>M</td>
-              <td>M015</td>
-              <td>P.S. 015 Roberto Clemente</td>
-              <td>02</td>
-              <td>GEN ED</td>
-              <td>-</td>
-              <td>-</td>
-              <td>-</td>
-              <td>15.0</td>
-              <td>1.0</td>
-              <td>15.0</td>
-              <td>15.0</td>
-              <td>15.0</td>
-              <td>ATS</td>
-              <td>NaN</td>
-            </tr>
-          </tbody>
-        </table>
-        </div>
-        </div>
-
-        </div>
-
-        </div>
-        </div>
-
-        </div>
-        <div class="cell border-box-sizing text_cell rendered">
-        <div class="prompt input_prompt">
-        </div>
-        <div class="inner_cell">
-        <div class="text_cell_render border-box-sizing rendered_html">
-        <h2 id="School-Demographics-and-Accountability-Snapshot-2006-2012">School Demographics and Accountability Snapshot 2006-2012<a class="anchor-link" href="#School-Demographics-and-Accountability-Snapshot-2006-2012">&#182;</a></h2><p>Annual school accounts of NYC public school student populations served by grade, special programs, ethnicity, gender and Title I funded programs.</p>
-
-        </div>
-        </div>
-        </div>
-        <div class="cell border-box-sizing code_cell rendered">
-        <div class="input">
-        <div class="prompt input_prompt">In&nbsp;[20]:</div>
-        <div class="inner_cell">
-            <div class="input_area">
-        <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;school_demographics&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../Data/us_sat/</span><span class="si">{0}</span><span class="s2">.csv&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;School_Demographics_and_Accountability&quot;</span><span class="p">))</span>
-        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;school_demographics&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
-        </pre></div>
-
-        </div>
-        </div>
-        </div>
-
-        <div class="output_wrapper">
-        <div class="output">
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[36]:</div>
 
 
-        <div class="output_area">
-        <div class="prompt output_prompt">Out[20]:</div>
+    <div class="output_html rendered_html output_subarea output_execute_result">
+    <div>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>DBN</th>
+          <th>Name</th>
+          <th>schoolyear</th>
+          <th>fl_percent</th>
+          <th>frl_percent</th>
+          <th>total_enrollment</th>
+          <th>prek</th>
+          <th>k</th>
+          <th>grade1</th>
+          <th>grade2</th>
+          <th>...</th>
+          <th>black_num</th>
+          <th>black_per</th>
+          <th>hispanic_num</th>
+          <th>hispanic_per</th>
+          <th>white_num</th>
+          <th>white_per</th>
+          <th>male_num</th>
+          <th>male_per</th>
+          <th>female_num</th>
+          <th>female_per</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>01M015</td>
+          <td>P.S. 015 ROBERTO CLEMENTE</td>
+          <td>20052006</td>
+          <td>89.4</td>
+          <td>NaN</td>
+          <td>281</td>
+          <td>15</td>
+          <td>36</td>
+          <td>40</td>
+          <td>33</td>
+          <td>...</td>
+          <td>74</td>
+          <td>26.3</td>
+          <td>189</td>
+          <td>67.3</td>
+          <td>5</td>
+          <td>1.8</td>
+          <td>158.0</td>
+          <td>56.2</td>
+          <td>123.0</td>
+          <td>43.8</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>01M015</td>
+          <td>P.S. 015 ROBERTO CLEMENTE</td>
+          <td>20062007</td>
+          <td>89.4</td>
+          <td>NaN</td>
+          <td>243</td>
+          <td>15</td>
+          <td>29</td>
+          <td>39</td>
+          <td>38</td>
+          <td>...</td>
+          <td>68</td>
+          <td>28.0</td>
+          <td>153</td>
+          <td>63.0</td>
+          <td>4</td>
+          <td>1.6</td>
+          <td>140.0</td>
+          <td>57.6</td>
+          <td>103.0</td>
+          <td>42.4</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>01M015</td>
+          <td>P.S. 015 ROBERTO CLEMENTE</td>
+          <td>20072008</td>
+          <td>89.4</td>
+          <td>NaN</td>
+          <td>261</td>
+          <td>18</td>
+          <td>43</td>
+          <td>39</td>
+          <td>36</td>
+          <td>...</td>
+          <td>77</td>
+          <td>29.5</td>
+          <td>157</td>
+          <td>60.2</td>
+          <td>7</td>
+          <td>2.7</td>
+          <td>143.0</td>
+          <td>54.8</td>
+          <td>118.0</td>
+          <td>45.2</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>01M015</td>
+          <td>P.S. 015 ROBERTO CLEMENTE</td>
+          <td>20082009</td>
+          <td>89.4</td>
+          <td>NaN</td>
+          <td>252</td>
+          <td>17</td>
+          <td>37</td>
+          <td>44</td>
+          <td>32</td>
+          <td>...</td>
+          <td>75</td>
+          <td>29.8</td>
+          <td>149</td>
+          <td>59.1</td>
+          <td>7</td>
+          <td>2.8</td>
+          <td>149.0</td>
+          <td>59.1</td>
+          <td>103.0</td>
+          <td>40.9</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>01M015</td>
+          <td>P.S. 015 ROBERTO CLEMENTE</td>
+          <td>20092010</td>
+          <td></td>
+          <td>96.5</td>
+          <td>208</td>
+          <td>16</td>
+          <td>40</td>
+          <td>28</td>
+          <td>32</td>
+          <td>...</td>
+          <td>67</td>
+          <td>32.2</td>
+          <td>118</td>
+          <td>56.7</td>
+          <td>6</td>
+          <td>2.9</td>
+          <td>124.0</td>
+          <td>59.6</td>
+          <td>84.0</td>
+          <td>40.4</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>5 rows × 38 columns</p>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h2 id="Class-size-on-the-school-level">Class size on the school level<a class="anchor-link" href="#Class-size-on-the-school-level"></a></h2><p>This data set contains the average class sizes for each school, by grade and program type (full description <a href="https://data.cityofnewyork.us/Education/2010-2011-Class-Size-School-level-detail/urz7-pzb3">here</a>).</p>
+    <p><b>Full data</b> can be viewed <a href="{{ site.baseurl }}/web/us_sat_data.html#div-us_sat-class_size">here</a>.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[37]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#read csv file and show the data head</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="s2">&quot;../data/us_sat/</span><span class="si">{0}</span><span class="s2">.csv&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="s2">&quot;Class_Size-School_level_detail&quot;</span><span class="p">))</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
 
 
-        <div class="output_html rendered_html output_subarea output_execute_result">
-        <div>
-        <table border="1" class="dataframe">
-          <thead>
-            <tr style="text-align: right;">
-              <th></th>
-              <th>DBN</th>
-              <th>Name</th>
-              <th>schoolyear</th>
-              <th>fl_percent</th>
-              <th>frl_percent</th>
-              <th>total_enrollment</th>
-              <th>prek</th>
-              <th>k</th>
-              <th>grade1</th>
-              <th>grade2</th>
-              <th>...</th>
-              <th>black_num</th>
-              <th>black_per</th>
-              <th>hispanic_num</th>
-              <th>hispanic_per</th>
-              <th>white_num</th>
-              <th>white_per</th>
-              <th>male_num</th>
-              <th>male_per</th>
-              <th>female_num</th>
-              <th>female_per</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <th>0</th>
-              <td>01M015</td>
-              <td>P.S. 015 ROBERTO CLEMENTE</td>
-              <td>20052006</td>
-              <td>89.4</td>
-              <td>NaN</td>
-              <td>281</td>
-              <td>15</td>
-              <td>36</td>
-              <td>40</td>
-              <td>33</td>
-              <td>...</td>
-              <td>74</td>
-              <td>26.3</td>
-              <td>189</td>
-              <td>67.3</td>
-              <td>5</td>
-              <td>1.8</td>
-              <td>158.0</td>
-              <td>56.2</td>
-              <td>123.0</td>
-              <td>43.8</td>
-            </tr>
-            <tr>
-              <th>1</th>
-              <td>01M015</td>
-              <td>P.S. 015 ROBERTO CLEMENTE</td>
-              <td>20062007</td>
-              <td>89.4</td>
-              <td>NaN</td>
-              <td>243</td>
-              <td>15</td>
-              <td>29</td>
-              <td>39</td>
-              <td>38</td>
-              <td>...</td>
-              <td>68</td>
-              <td>28.0</td>
-              <td>153</td>
-              <td>63.0</td>
-              <td>4</td>
-              <td>1.6</td>
-              <td>140.0</td>
-              <td>57.6</td>
-              <td>103.0</td>
-              <td>42.4</td>
-            </tr>
-            <tr>
-              <th>2</th>
-              <td>01M015</td>
-              <td>P.S. 015 ROBERTO CLEMENTE</td>
-              <td>20072008</td>
-              <td>89.4</td>
-              <td>NaN</td>
-              <td>261</td>
-              <td>18</td>
-              <td>43</td>
-              <td>39</td>
-              <td>36</td>
-              <td>...</td>
-              <td>77</td>
-              <td>29.5</td>
-              <td>157</td>
-              <td>60.2</td>
-              <td>7</td>
-              <td>2.7</td>
-              <td>143.0</td>
-              <td>54.8</td>
-              <td>118.0</td>
-              <td>45.2</td>
-            </tr>
-            <tr>
-              <th>3</th>
-              <td>01M015</td>
-              <td>P.S. 015 ROBERTO CLEMENTE</td>
-              <td>20082009</td>
-              <td>89.4</td>
-              <td>NaN</td>
-              <td>252</td>
-              <td>17</td>
-              <td>37</td>
-              <td>44</td>
-              <td>32</td>
-              <td>...</td>
-              <td>75</td>
-              <td>29.8</td>
-              <td>149</td>
-              <td>59.1</td>
-              <td>7</td>
-              <td>2.8</td>
-              <td>149.0</td>
-              <td>59.1</td>
-              <td>103.0</td>
-              <td>40.9</td>
-            </tr>
-            <tr>
-              <th>4</th>
-              <td>01M015</td>
-              <td>P.S. 015 ROBERTO CLEMENTE</td>
-              <td>20092010</td>
-              <td></td>
-              <td>96.5</td>
-              <td>208</td>
-              <td>16</td>
-              <td>40</td>
-              <td>28</td>
-              <td>32</td>
-              <td>...</td>
-              <td>67</td>
-              <td>32.2</td>
-              <td>118</td>
-              <td>56.7</td>
-              <td>6</td>
-              <td>2.9</td>
-              <td>124.0</td>
-              <td>59.6</td>
-              <td>84.0</td>
-              <td>40.4</td>
-            </tr>
-          </tbody>
-        </table>
-        <p>5 rows × 38 columns</p>
-        </div>
-        </div>
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[37]:</div>
 
-        </div>
 
-        </div>
-        </div>
+    <div class="output_html rendered_html output_subarea output_execute_result">
+    <div>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>CSD</th>
+          <th>BOROUGH</th>
+          <th>SCHOOL CODE</th>
+          <th>SCHOOL NAME</th>
+          <th>GRADE</th>
+          <th>PROGRAM TYPE</th>
+          <th>CORE SUBJECT (MS CORE and 9-12 ONLY)</th>
+          <th>CORE COURSE (MS CORE and 9-12 ONLY)</th>
+          <th>SERVICE CATEGORY(K-9* ONLY)</th>
+          <th>NUMBER OF STUDENTS / SEATS FILLED</th>
+          <th>NUMBER OF SECTIONS</th>
+          <th>AVERAGE CLASS SIZE</th>
+          <th>SIZE OF SMALLEST CLASS</th>
+          <th>SIZE OF LARGEST CLASS</th>
+          <th>DATA SOURCE</th>
+          <th>SCHOOLWIDE PUPIL-TEACHER RATIO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>0K</td>
+          <td>GEN ED</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>19.0</td>
+          <td>1.0</td>
+          <td>19.0</td>
+          <td>19.0</td>
+          <td>19.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>0K</td>
+          <td>CTT</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>21.0</td>
+          <td>1.0</td>
+          <td>21.0</td>
+          <td>21.0</td>
+          <td>21.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>01</td>
+          <td>GEN ED</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>17.0</td>
+          <td>1.0</td>
+          <td>17.0</td>
+          <td>17.0</td>
+          <td>17.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>01</td>
+          <td>CTT</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>17.0</td>
+          <td>1.0</td>
+          <td>17.0</td>
+          <td>17.0</td>
+          <td>17.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>02</td>
+          <td>GEN ED</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>15.0</td>
+          <td>1.0</td>
+          <td>15.0</td>
+          <td>15.0</td>
+          <td>15.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
 
-        </div>
-        <div class="cell border-box-sizing text_cell rendered">
-        <div class="prompt input_prompt">
-        </div>
-        <div class="inner_cell">
-        <div class="text_cell_render border-box-sizing rendered_html">
-        <h1 id="Analysis-process-description">Analysis process description<a class="anchor-link" href="#Analysis-process-description">&#182;</a></h1><p>(some text)</p>
-        <p>In order to work with the data more easily, we’ll need to unify all the individual datasets into a single one. This will enable us to quickly compare columns across datasets. In order to do this, we’ll first need to find a common column to unify them on. Looking at the output above, it appears that DBN might be that common column, as it appears in multiple datasets.</p>
-        <p>DBN is a unique code for each school</p>
-        <p>class_size, and hs_directory, don’t have a DBN field. In the hs_directory data, it’s just named dbn, so we can just rename the column, or copy it over into a new column called DBN. In the class_size data, we’ll need to try a different approach.</p>
-        <p>...
-        If we take a look at some of the datasets, including class_size, we’ll immediately see a problem:</p>
-        <p>There are several rows for each high school (as you can see by the repeated DBN and SCHOOL NAME fields). However, if we take a look at the sat_results dataset, it only has one row per high school</p>
+    </div>
 
-        </div>
-        </div>
-        </div>
-        <div class="cell border-box-sizing text_cell rendered">
-        <div class="prompt input_prompt">
-        </div>
-        <div class="inner_cell">
-        <div class="text_cell_render border-box-sizing rendered_html">
-        <h2 id="Data-cleaning">Data cleaning<a class="anchor-link" href="#Data-cleaning">&#182;</a></h2><p>Data cleaning and exploration is critical before working on the meat of the project. Having a good, consistent dataset will help you do your analysis more quickly.</p>
+    </div>
+    </div>
 
-        </div>
-        </div>
-        </div>
-        <div class="cell border-box-sizing text_cell rendered">
-        <div class="prompt input_prompt">
-        </div>
-        <div class="inner_cell">
-        <div class="text_cell_render border-box-sizing rendered_html">
-        <h1 id="Outlooks">Outlooks<a class="anchor-link" href="#Outlooks">&#182;</a></h1><p>Adding in the surveys</p>
-        <p>One of the most potentially interesting datasets to look at is the dataset on student, parent, and teacher surveys about the quality of schools. These surveys include information about the perceived safety of each school, academic standards, and more. Before we combine our datasets, let’s add in the survey data. In real-world data science projects, you’ll often come across interesting data when you’re midway through your analysis, and will want to incorporate it. Working with a flexible tool like Jupyter notebook will allow you to quickly add some additional code, and re-run your analysis.</p>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h1 id="Data-cleaning">Data cleaning<a class="anchor-link" href="#Data-cleaning"></a></h1><p>Having a consistent dataset will help us do analysis more quickly.
+    In order to do this, we’ll first need to find a common column to unify them on.
+    Looking at the output above, it appears that "DBN" (District Borough Number) might be that common column, as it appears in multiple datasets.
+    DBN is a unique code for each school.</p>
+    <p>However:</p>
+    <ul>
+    <li>the "class_size" data set don’t have a DBN field. </li>
+    <li>there are several rows for each high school in both the "class_size" and the "demographics" data sets.</li>
+    <li>the 3 components of the SAT scores (columns) need to be summed.</li>
+    </ul>
+    <p>Thus, we need to clean these them first.</p>
 
-        </div>
-        </div>
-        </div>
-        <div class="cell border-box-sizing code_cell rendered">
-        <div class="input">
-        <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-        <div class="inner_cell">
-            <div class="input_area">
-        <div class=" highlight hl-ipython3"><pre><span></span>
-        </pre></div>
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h2 id="Cleaning-each-data-set">Cleaning each data set<a class="anchor-link" href="#Cleaning-each-data-set"></a></h2><p>If we look to the data set "class_size" and to the "DBN" column in the other data sets, it looks like the DBN is actually a combination of "CSD" and "SCHOOL CODE".
+    There’s no systematized way to find insights like this in data, and it requires some exploration and playing around to figure out.
+    Let us create the column "DBN" now.</p>
 
-        </div>
-        </div>
-        </div>
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[38]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create the &quot;DBN&quot; column by combining other columns</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size&quot;</span><span class="p">][</span><span class="s2">&quot;DBN&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">apply</span><span class="p">(</span><span class="k">lambda</span> <span class="n">x</span><span class="p">:</span> <span class="s2">&quot;</span><span class="si">{0:02d}{1}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="s2">&quot;CSD&quot;</span><span class="p">],</span> <span class="n">x</span><span class="p">[</span><span class="s2">&quot;SCHOOL CODE&quot;</span><span class="p">]),</span> <span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    </pre></div>
 
-        </div>
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[38]:</div>
+
+
+    <div class="output_html rendered_html output_subarea output_execute_result">
+    <div>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>CSD</th>
+          <th>BOROUGH</th>
+          <th>SCHOOL CODE</th>
+          <th>SCHOOL NAME</th>
+          <th>GRADE</th>
+          <th>PROGRAM TYPE</th>
+          <th>CORE SUBJECT (MS CORE and 9-12 ONLY)</th>
+          <th>CORE COURSE (MS CORE and 9-12 ONLY)</th>
+          <th>SERVICE CATEGORY(K-9* ONLY)</th>
+          <th>NUMBER OF STUDENTS / SEATS FILLED</th>
+          <th>NUMBER OF SECTIONS</th>
+          <th>AVERAGE CLASS SIZE</th>
+          <th>SIZE OF SMALLEST CLASS</th>
+          <th>SIZE OF LARGEST CLASS</th>
+          <th>DATA SOURCE</th>
+          <th>SCHOOLWIDE PUPIL-TEACHER RATIO</th>
+          <th>DBN</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>0K</td>
+          <td>GEN ED</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>19.0</td>
+          <td>1.0</td>
+          <td>19.0</td>
+          <td>19.0</td>
+          <td>19.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+          <td>01M015</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>0K</td>
+          <td>CTT</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>21.0</td>
+          <td>1.0</td>
+          <td>21.0</td>
+          <td>21.0</td>
+          <td>21.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+          <td>01M015</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>01</td>
+          <td>GEN ED</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>17.0</td>
+          <td>1.0</td>
+          <td>17.0</td>
+          <td>17.0</td>
+          <td>17.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+          <td>01M015</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>01</td>
+          <td>CTT</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>17.0</td>
+          <td>1.0</td>
+          <td>17.0</td>
+          <td>17.0</td>
+          <td>17.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+          <td>01M015</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>1</td>
+          <td>M</td>
+          <td>M015</td>
+          <td>P.S. 015 Roberto Clemente</td>
+          <td>02</td>
+          <td>GEN ED</td>
+          <td>-</td>
+          <td>-</td>
+          <td>-</td>
+          <td>15.0</td>
+          <td>1.0</td>
+          <td>15.0</td>
+          <td>15.0</td>
+          <td>15.0</td>
+          <td>ATS</td>
+          <td>NaN</td>
+          <td>01M015</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <p>In order to combine these datasets, we’ll need to find a way to condense data sets like "class_size" to the point where there’s only a single row per high school.
+    If not, there won’t be a way to compare SAT scores to class size.
+    We can accomplish this by first understanding the data better, then by doing some aggregation.
+    With the class_size dataset, it looks like GRADE and PROGRAM TYPE have multiple values for each school.
+    By restricting each field to a single value, we can filter most of the duplicate rows.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[39]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="n">class_size_temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size&quot;</span><span class="p">]</span>
+
+    <span class="c1">#restrict the class_size data set to a specific grade and program type</span>
+    <span class="n">class_size_temp</span> <span class="o">=</span> <span class="n">class_size_temp</span><span class="p">[</span><span class="n">class_size_temp</span><span class="p">[</span><span class="s2">&quot;GRADE &quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;09-12&quot;</span><span class="p">]</span>
+    <span class="n">class_size_temp</span> <span class="o">=</span> <span class="n">class_size_temp</span><span class="p">[</span><span class="n">class_size_temp</span><span class="p">[</span><span class="s2">&quot;PROGRAM TYPE&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="s2">&quot;GEN ED&quot;</span><span class="p">]</span>
+
+    <span class="c1">#there still are duplicates, we group the class_size data set by DBN, and take the average of each column</span>
+    <span class="n">class_size_temp</span> <span class="o">=</span> <span class="n">class_size_temp</span><span class="o">.</span><span class="n">groupby</span><span class="p">(</span><span class="s2">&quot;DBN&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">agg</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">)</span>
+
+    <span class="c1">#reset the index, so DBN is added back in as a column (otherwise, DBN is the index column)</span>
+    <span class="n">class_size_temp</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size_ge_09-12&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">class_size_temp</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size_ge_09-12&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[39]:</div>
+
+
+    <div class="output_html rendered_html output_subarea output_execute_result">
+    <div>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>DBN</th>
+          <th>CSD</th>
+          <th>NUMBER OF STUDENTS / SEATS FILLED</th>
+          <th>NUMBER OF SECTIONS</th>
+          <th>AVERAGE CLASS SIZE</th>
+          <th>SIZE OF SMALLEST CLASS</th>
+          <th>SIZE OF LARGEST CLASS</th>
+          <th>SCHOOLWIDE PUPIL-TEACHER RATIO</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>01M292</td>
+          <td>1</td>
+          <td>88.0000</td>
+          <td>4.000000</td>
+          <td>22.564286</td>
+          <td>18.50</td>
+          <td>26.571429</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>01M332</td>
+          <td>1</td>
+          <td>46.0000</td>
+          <td>2.000000</td>
+          <td>22.000000</td>
+          <td>21.00</td>
+          <td>23.500000</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>01M378</td>
+          <td>1</td>
+          <td>33.0000</td>
+          <td>1.000000</td>
+          <td>33.000000</td>
+          <td>33.00</td>
+          <td>33.000000</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>01M448</td>
+          <td>1</td>
+          <td>105.6875</td>
+          <td>4.750000</td>
+          <td>22.231250</td>
+          <td>18.25</td>
+          <td>27.062500</td>
+          <td>NaN</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>01M450</td>
+          <td>1</td>
+          <td>57.6000</td>
+          <td>2.733333</td>
+          <td>21.200000</td>
+          <td>19.40</td>
+          <td>22.866667</td>
+          <td>NaN</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <p>Next, we’ll need to condense the demographics dataset.
+    The data was collected for multiple years for the same schools.
+    We will only pick rows where the schoolyear field is the most recent available.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[40]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#select only one year</span>
+    <span class="n">demographics_temp</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s2">&quot;demographics&quot;</span><span class="p">]</span>
+    <span class="n">demographics_temp</span> <span class="o">=</span> <span class="n">demographics_temp</span><span class="p">[</span><span class="n">demographics_temp</span><span class="p">[</span><span class="s2">&quot;schoolyear&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="mi">20112012</span><span class="p">]</span>
+
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;demographics_2011-2012&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">demographics_temp</span>
+    <span class="n">data</span><span class="p">[</span><span class="s2">&quot;demographics_2011-2012&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[40]:</div>
+
+
+    <div class="output_html rendered_html output_subarea output_execute_result">
+    <div>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>DBN</th>
+          <th>Name</th>
+          <th>schoolyear</th>
+          <th>fl_percent</th>
+          <th>frl_percent</th>
+          <th>total_enrollment</th>
+          <th>prek</th>
+          <th>k</th>
+          <th>grade1</th>
+          <th>grade2</th>
+          <th>...</th>
+          <th>black_num</th>
+          <th>black_per</th>
+          <th>hispanic_num</th>
+          <th>hispanic_per</th>
+          <th>white_num</th>
+          <th>white_per</th>
+          <th>male_num</th>
+          <th>male_per</th>
+          <th>female_num</th>
+          <th>female_per</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>6</th>
+          <td>01M015</td>
+          <td>P.S. 015 ROBERTO CLEMENTE</td>
+          <td>20112012</td>
+          <td>NaN</td>
+          <td>89.4</td>
+          <td>189</td>
+          <td>13</td>
+          <td>31</td>
+          <td>35</td>
+          <td>28</td>
+          <td>...</td>
+          <td>63</td>
+          <td>33.3</td>
+          <td>109</td>
+          <td>57.7</td>
+          <td>4</td>
+          <td>2.1</td>
+          <td>97.0</td>
+          <td>51.3</td>
+          <td>92.0</td>
+          <td>48.7</td>
+        </tr>
+        <tr>
+          <th>13</th>
+          <td>01M019</td>
+          <td>P.S. 019 ASHER LEVY</td>
+          <td>20112012</td>
+          <td>NaN</td>
+          <td>61.5</td>
+          <td>328</td>
+          <td>32</td>
+          <td>46</td>
+          <td>52</td>
+          <td>54</td>
+          <td>...</td>
+          <td>81</td>
+          <td>24.7</td>
+          <td>158</td>
+          <td>48.2</td>
+          <td>28</td>
+          <td>8.5</td>
+          <td>147.0</td>
+          <td>44.8</td>
+          <td>181.0</td>
+          <td>55.2</td>
+        </tr>
+        <tr>
+          <th>20</th>
+          <td>01M020</td>
+          <td>PS 020 ANNA SILVER</td>
+          <td>20112012</td>
+          <td>NaN</td>
+          <td>92.5</td>
+          <td>626</td>
+          <td>52</td>
+          <td>102</td>
+          <td>121</td>
+          <td>87</td>
+          <td>...</td>
+          <td>55</td>
+          <td>8.8</td>
+          <td>357</td>
+          <td>57.0</td>
+          <td>16</td>
+          <td>2.6</td>
+          <td>330.0</td>
+          <td>52.7</td>
+          <td>296.0</td>
+          <td>47.3</td>
+        </tr>
+        <tr>
+          <th>27</th>
+          <td>01M034</td>
+          <td>PS 034 FRANKLIN D ROOSEVELT</td>
+          <td>20112012</td>
+          <td>NaN</td>
+          <td>99.7</td>
+          <td>401</td>
+          <td>14</td>
+          <td>34</td>
+          <td>38</td>
+          <td>36</td>
+          <td>...</td>
+          <td>90</td>
+          <td>22.4</td>
+          <td>275</td>
+          <td>68.6</td>
+          <td>8</td>
+          <td>2.0</td>
+          <td>204.0</td>
+          <td>50.9</td>
+          <td>197.0</td>
+          <td>49.1</td>
+        </tr>
+        <tr>
+          <th>35</th>
+          <td>01M063</td>
+          <td>PS 063 WILLIAM MCKINLEY</td>
+          <td>20112012</td>
+          <td>NaN</td>
+          <td>78.9</td>
+          <td>176</td>
+          <td>18</td>
+          <td>20</td>
+          <td>30</td>
+          <td>21</td>
+          <td>...</td>
+          <td>41</td>
+          <td>23.3</td>
+          <td>110</td>
+          <td>62.5</td>
+          <td>15</td>
+          <td>8.5</td>
+          <td>97.0</td>
+          <td>55.1</td>
+          <td>79.0</td>
+          <td>44.9</td>
+        </tr>
+      </tbody>
+    </table>
+    <p>5 rows × 38 columns</p>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <p>Now, we compute the total SAT scores from their individual 3 components.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[41]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#convert each of the SAT score columns from a string to a number</span>
+    <span class="n">cols</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;SAT Math Avg. Score&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT Critical Reading Avg. Score&#39;</span><span class="p">,</span> <span class="s1">&#39;SAT Writing Avg. Score&#39;</span><span class="p">]</span>
+    <span class="k">for</span> <span class="n">c</span> <span class="ow">in</span> <span class="n">cols</span><span class="p">:</span>
+        <span class="n">data</span><span class="p">[</span><span class="s2">&quot;sat_results&quot;</span><span class="p">][</span><span class="n">c</span><span class="p">]</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_numeric</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;sat_results&quot;</span><span class="p">][</span><span class="n">c</span><span class="p">],</span> <span class="n">errors</span><span class="o">=</span><span class="s1">&#39;coerce&#39;</span><span class="p">)</span>
+
+    <span class="c1">#add together all of the columns to get the sat_score column, which is the total SAT score</span>
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sat_results&#39;</span><span class="p">][</span><span class="s1">&#39;sat_score&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sat_results&#39;</span><span class="p">][</span><span class="n">cols</span><span class="p">[</span><span class="mi">0</span><span class="p">]]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sat_results&#39;</span><span class="p">][</span><span class="n">cols</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">+</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sat_results&#39;</span><span class="p">][</span><span class="n">cols</span><span class="p">[</span><span class="mi">2</span><span class="p">]]</span>
+
+    <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sat_results&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[41]:</div>
+
+
+    <div class="output_html rendered_html output_subarea output_execute_result">
+    <div>
+    <table border="1" class="dataframe">
+      <thead>
+        <tr style="text-align: right;">
+          <th></th>
+          <th>DBN</th>
+          <th>SCHOOL NAME</th>
+          <th>Num of SAT Test Takers</th>
+          <th>SAT Critical Reading Avg. Score</th>
+          <th>SAT Math Avg. Score</th>
+          <th>SAT Writing Avg. Score</th>
+          <th>sat_score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>0</th>
+          <td>01M292</td>
+          <td>HENRY STREET SCHOOL FOR INTERNATIONAL STUDIES</td>
+          <td>29</td>
+          <td>355.0</td>
+          <td>404.0</td>
+          <td>363.0</td>
+          <td>1122.0</td>
+        </tr>
+        <tr>
+          <th>1</th>
+          <td>01M448</td>
+          <td>UNIVERSITY NEIGHBORHOOD HIGH SCHOOL</td>
+          <td>91</td>
+          <td>383.0</td>
+          <td>423.0</td>
+          <td>366.0</td>
+          <td>1172.0</td>
+        </tr>
+        <tr>
+          <th>2</th>
+          <td>01M450</td>
+          <td>EAST SIDE COMMUNITY SCHOOL</td>
+          <td>70</td>
+          <td>377.0</td>
+          <td>402.0</td>
+          <td>370.0</td>
+          <td>1149.0</td>
+        </tr>
+        <tr>
+          <th>3</th>
+          <td>01M458</td>
+          <td>FORSYTH SATELLITE ACADEMY</td>
+          <td>7</td>
+          <td>414.0</td>
+          <td>401.0</td>
+          <td>359.0</td>
+          <td>1174.0</td>
+        </tr>
+        <tr>
+          <th>4</th>
+          <td>01M509</td>
+          <td>MARTA VALLE HIGH SCHOOL</td>
+          <td>44</td>
+          <td>390.0</td>
+          <td>433.0</td>
+          <td>384.0</td>
+          <td>1207.0</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h2 id="Combining-the-data-sets">Combining the data sets<a class="anchor-link" href="#Combining-the-data-sets"></a></h2><p>We can now combine all the data sets.
+    In this analysis, we ignore missing value.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[42]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#joining data sets</span>
+    <span class="n">data_full</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="s1">&#39;sat_results&#39;</span><span class="p">]</span>
+    <span class="n">data_full</span> <span class="o">=</span> <span class="n">data_full</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;class_size_ge_09-12&quot;</span><span class="p">],</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;DBN&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+    <span class="n">data_full</span> <span class="o">=</span> <span class="n">data_full</span><span class="o">.</span><span class="n">merge</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s2">&quot;demographics_2011-2012&quot;</span><span class="p">],</span> <span class="n">on</span><span class="o">=</span><span class="s2">&quot;DBN&quot;</span><span class="p">,</span> <span class="n">how</span><span class="o">=</span><span class="s2">&quot;inner&quot;</span><span class="p">)</span>
+
+    <span class="c1">#the structure of the global data set</span>
+    <span class="n">data_full</span><span class="o">.</span><span class="n">shape</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[42]:</div>
+
+
+
+    <div class="output_text output_subarea output_execute_result">
+    <pre>(434, 51)</pre>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h1 id="Data-analysis">Data analysis<a class="anchor-link" href="#Data-analysis"></a></h1><p>A good way to explore a dataset and see what columns are related to the one you care about is to compute correlations. This will tell you which columns are closely related to the column you’re interested in:</p>
+    <ul>
+    <li>The closer to 0 the correlation, the weaker the connection.</li>
+    <li>The closer to 1, the stronger the positive correlation, and the closer to -1, the stronger the negative correlation.</li>
+    </ul>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[43]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#show the correlations of the columns with the &quot;sat_score&quot; column</span>
+    <span class="n">data_full_corr</span> <span class="o">=</span> <span class="n">data_full</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s1">&#39;sat_score&#39;</span><span class="p">]</span>
+    <span class="n">data_full_corr</span><span class="o">.</span><span class="n">sort_values</span><span class="p">(</span><span class="n">ascending</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[43]:</div>
+
+
+
+    <div class="output_text output_subarea output_execute_result">
+    <pre>sat_score                            1.000000
+    SAT Writing Avg. Score               0.981751
+    SAT Critical Reading Avg. Score      0.976819
+    SAT Math Avg. Score                  0.956406
+    white_per                            0.646568
+    asian_per                            0.552204
+    asian_num                            0.483939
+    white_num                            0.460505
+    female_num                           0.403581
+    NUMBER OF STUDENTS / SEATS FILLED    0.400095
+    AVERAGE CLASS SIZE                   0.395964
+    total_enrollment                     0.385741
+    NUMBER OF SECTIONS                   0.364537
+    male_num                             0.345808
+    SIZE OF LARGEST CLASS                0.327099
+    SIZE OF SMALLEST CLASS               0.282388
+    female_per                           0.107676
+    sped_num                             0.058782
+    CSD                                  0.054011
+    hispanic_num                         0.052672
+    black_num                            0.043408
+    male_per                            -0.107624
+    ell_num                             -0.130355
+    black_per                           -0.302794
+    hispanic_per                        -0.363696
+    ell_percent                         -0.379510
+    sped_percent                        -0.420646
+    frl_percent                         -0.718163
+    SCHOOLWIDE PUPIL-TEACHER RATIO            NaN
+    schoolyear                                NaN
+    Name: sat_score, dtype: float64</pre>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <p>This gives us a few insights that can be explored. For example:</p>
+    <ul>
+    <li>The percentage of females at a school (female_per) correlates positively with SAT score, whereas the percentage of males (male_per) correlates negatively.</li>
+    <li>There is a significant racial inequality in SAT scores (white_per, asian_per, black_per, hispanic_per).</li>
+    </ul>
+    <p>Each of these items is a potential angle to explore and tell a story about using the data.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h2 id="Exploring-race-and-SAT-scores">Exploring race and SAT scores<a class="anchor-link" href="#Exploring-race-and-SAT-scores"></a></h2><p>One angle to investigate involves race and SAT scores.
+    There is a large correlation difference, and plotting it out will help us see that.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[44]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#importing the matplotlib library</span>
+    <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+    <span class="o">%</span><span class="k">matplotlib</span> inline
+
+    <span class="c1">#2D graph </span>
+    <span class="n">data_full</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s2">&quot;sat_score&quot;</span><span class="p">][[</span><span class="s2">&quot;white_per&quot;</span><span class="p">,</span> <span class="s2">&quot;asian_per&quot;</span><span class="p">,</span> <span class="s2">&quot;black_per&quot;</span><span class="p">,</span> <span class="s2">&quot;hispanic_per&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[44]:</div>
+
+
+
+    <div class="output_text output_subarea output_execute_result">
+    <pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x109172b38&gt;</pre>
+    </div>
+
+    </div>
+
+    <div class="output_area">
+    <div class="prompt"></div>
+
+
+
+    <div class="output_png output_subarea ">
+    <img src="data:image/png;base64,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
+    /wNHvimcgV7PRQAAAABJRU5ErkJggg==
+    "
+    >
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <p>It looks like the higher percentages of white and asian students correlate with higher SAT scores, but higher percentages of black and hispanic students correlate with lower SAT scores.
+    For hispanic students, this may be due to the fact that there are more recent immigrants who are english learners.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h2 id="Gender-differences-in-SAT-scores">Gender differences in SAT scores<a class="anchor-link" href="#Gender-differences-in-SAT-scores"></a></h2><p>An other angle to explore is the relationship between gender and SAT score.
+    We noted that a higher percentage of females in a school tends to correlate with higher SAT scores.
+    We can visualize this with a bar graph.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[45]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#2D graph </span>
+    <span class="n">data_full</span><span class="o">.</span><span class="n">corr</span><span class="p">()[</span><span class="s2">&quot;sat_score&quot;</span><span class="p">][[</span><span class="s2">&quot;male_per&quot;</span><span class="p">,</span> <span class="s2">&quot;female_per&quot;</span><span class="p">]]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">bar</span><span class="p">()</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[45]:</div>
+
+
+
+    <div class="output_text output_subarea output_execute_result">
+    <pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x109c5f160&gt;</pre>
+    </div>
+
+    </div>
+
+    <div class="output_area">
+    <div class="prompt"></div>
+
+
+
+    <div class="output_png output_subarea ">
+    <img src="data:image/png;base64,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
+    "
+    >
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <p>To dig more into the correlation, we can make a scatterplot of "female_per" and "sat_score".</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[46]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#scatter plot</span>
+    <span class="n">data_full</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="s1">&#39;female_per&#39;</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="s1">&#39;sat_score&#39;</span><span class="p">)</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[46]:</div>
+
+
+
+    <div class="output_text output_subarea output_execute_result">
+    <pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x104209978&gt;</pre>
+    </div>
+
+    </div>
+
+    <div class="output_area">
+    <div class="prompt"></div>
+
+
+
+    <div class="output_png output_subarea ">
+    <img src="data:image/png;base64,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
+    PAzDMIyC+f+OvDElKTvl3QAAAABJRU5ErkJggg==
+    "
+    >
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <p>It looks like there’s a cluster of schools with a high percentage of females, and very high SAT scores (in the top right).
+    We can get the names of the schools in this cluster.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[47]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span><span class="n">data_full</span><span class="p">[(</span><span class="n">data_full</span><span class="p">[</span><span class="s2">&quot;female_per&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">65</span><span class="p">)</span> <span class="o">&amp;</span> <span class="p">(</span><span class="n">data_full</span><span class="p">[</span><span class="s2">&quot;sat_score&quot;</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">1400</span><span class="p">)][</span><span class="s2">&quot;SCHOOL NAME&quot;</span><span class="p">]</span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    <div class="output_wrapper">
+    <div class="output">
+
+
+    <div class="output_area">
+    <div class="prompt output_prompt">Out[47]:</div>
+
+
+
+    <div class="output_text output_subarea output_execute_result">
+    <pre>8                         BARD HIGH SCHOOL EARLY COLLEGE
+    27              PROFESSIONAL PERFORMING ARTS HIGH SCHOOL
+    31                         ELEANOR ROOSEVELT HIGH SCHOOL
+    48                          TALENT UNLIMITED HIGH SCHOOL
+    78     FIORELLO H. LAGUARDIA HIGH SCHOOL OF MUSIC &amp; A...
+    364                          TOWNSEND HARRIS HIGH SCHOOL
+    411         FRANK SINATRA SCHOOL OF THE ARTS HIGH SCHOOL
+    Name: SCHOOL NAME, dtype: object</pre>
+    </div>
+
+    </div>
+
+    </div>
+    </div>
+
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <p>Searching Google reveals that these are elite schools that focus on the performing arts. These schools tend to have higher percentages of females, and higher SAT scores. This likely accounts for the correlation between higher female percentages and SAT scores, and the inverse correlation between higher male percentages and lower SAT scores.</p>
+
+    </div>
+    </div>
+    </div>
+    <div class="cell border-box-sizing text_cell rendered">
+    <div class="prompt input_prompt">
+    </div>
+    <div class="inner_cell">
+    <div class="text_cell_render border-box-sizing rendered_html">
+    <h1 id="Conclusion">Conclusion<a class="anchor-link" href="#Conclusion"></a></h1><p>In this post, we have analysed the schools SAT scores and the relation with some other informations like ethnic groups and gender.
+    However, we explored some angles only in the surface, and could have dived into more.
+    Furthermore, we could have combined with other data sets such as schools location informations.</p>
+
+    </div>
+    </div>
+    </div>
+    <!-- <div class="cell border-box-sizing code_cell rendered">
+    <div class="input">
+    <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+    <div class="inner_cell">
+        <div class="input_area">
+    <div class=" highlight hl-ipython3"><pre><span></span>
+    </pre></div>
+
+    </div>
+    </div>
+    </div>
+
+    </div> -->
+
 
   </div>
 </div>

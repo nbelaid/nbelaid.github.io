@@ -3,11 +3,14 @@ layout: template1
 comments: false
 ---
 
-For any question or comment, please contact me here.
+For any question or comment, please contact me.
 
-<div class="panel panel-default shadow1">
+<!-- <div class="panel panel-default shadow1"> -->
+<div class="panel panel-primary shadow1">
       <div class="panel-heading">
-        <h4 class="text-primary">Contact</h4>
+        <!-- <h4 class="text-primary">Contact</h4> -->
+        <h3 class="panel-title">Contact</h3>
+        <!-- <h3>Contact</h3> -->
       </div>
       <div class="panel-body">
             <form id="contactform" method="POST">
