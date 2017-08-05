@@ -1,5 +1,5 @@
 ---
-layout: template2
+layout: template1
 comments: false
 output:
     html_document:
