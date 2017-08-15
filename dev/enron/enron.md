@@ -25,11 +25,11 @@ On each of these sub-periods, we visualize the 20 "strongest" communications (in
 Data loading
 ============
 
-Let's load the Enron dataset (you may download it <a href="{{ site.baseurl }}/data/enron/EnronExtract.Rdata">here</a>). Note: you can find the full Enron dataset in the internet. Fur the purpuse of this work, we only use an extract.
+Let's load the Enron dataset (you may download it <a href="{{ site.baseurl }}/dev/enron/data/EnronExtract.Rdata">here</a>). Note: you can find the full Enron dataset in the internet. Fur the purpuse of this work, we only use an extract.
 
 ``` r
 # data loading
-wdPath = '../../data/enron/'
+wdPath = 'data/'
 load(paste(wdPath, 'EnronExtract.Rdata', sep = ""))
 ```
 
@@ -154,7 +154,7 @@ buildmatriceEmployee <- function(debut, fin){
  # reinitialize the global matrix
  matriceEmployee <- initializematriceEmployee()
  for (i in 1:length(sel)){
-   # search for the email and the name of the sender 
+   # search for the email and the name of the sender
    x = which(message$sender[sel[i]] == employeelistSortByStatus$Email_id |
    message$sender[sel[i]] == employeelistSortByStatus$Email2 |
    message$sender[sel[i]] == employeelistSortByStatus$Email3 |
@@ -249,19 +249,19 @@ for(i in 1:(length(dates)-1)){
  plot.new()
  legend("center", legend = vectStatus, col = paletteColor,
  ncol = 1, cex = 1, lwd = 3, text.font = 1, text.col = paletteColor)
- 
- # file loading 
+
+ # file loading
  fileName = paste(wdPath, "Enron", dates[i], dates[i+1], sep="_")
  fileName = paste(fileName, "Rdata", sep = '.')
  load(fileName)
- 
+
  # threshold calculation of 'numberExchangeKept' most massive exchanges
  vectorEmployee = as.vector(matriceEmployee)
  seuil = tail(sort(vectorEmployee),numberExchangeKept)[1]
- 
+
  # matrix transformation
  Xbis = (matriceEmployee >= seuil) + 0
- 
+
  # graphe handling
  gbis = graph.adjacency(Xbis)
  gbis$layout <- layout.circle
