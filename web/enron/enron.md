@@ -2,10 +2,6 @@
 layout: template1
 ---
 
-Title: Enron affair
-===================
-
-Case study on the exploration of a hypothesis about the Enron affair.
 
 Introduction
 ============
@@ -226,15 +222,15 @@ We then load a visualization library
 library(igraph)
 ```
 
-    ## 
+    ##
     ## Attaching package: 'igraph'
 
     ## The following objects are masked from 'package:stats':
-    ## 
+    ##
     ##     decompose, spectrum
 
     ## The following object is masked from 'package:base':
-    ## 
+    ##
     ##     union
 
 ``` r

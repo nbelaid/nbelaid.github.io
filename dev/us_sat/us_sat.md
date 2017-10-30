@@ -1,7 +1,4 @@
 
-# Title: US Scholastic Aptitude Test 
-Case study on some influential factors.
-
 # Introduction
 In this post, we are looking at the SAT (Scholastic Aptitude Test) scores of high schoolers in the US along with other informations.
 We will use <code>Python</code> for the data analysis.
@@ -1065,7 +1062,7 @@ data_full.corr()["sat_score"][["white_per", "asian_per", "black_per", "hispanic_
 
 
 
-![png](output_28_1.png)
+![png](output_27_1.png)
 
 
 It looks like the higher percentages of white and asian students correlate with higher SAT scores, but higher percentages of black and hispanic students correlate with lower SAT scores. 
@@ -1090,7 +1087,7 @@ data_full.corr()["sat_score"][["male_per", "female_per"]].plot.bar()
 
 
 
-![png](output_31_1.png)
+![png](output_30_1.png)
 
 
 To dig more into the correlation, we can make a scatterplot of "female_per" and "sat_score".
@@ -1109,7 +1106,7 @@ data_full.plot.scatter(x='female_per', y='sat_score')
 
 
 
-![png](output_33_1.png)
+![png](output_32_1.png)
 
 
 It looks like there’s a cluster of schools with a high percentage of females, and very high SAT scores (in the top right). 

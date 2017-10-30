@@ -5,9 +5,6 @@ output:
     variant: markdown_github
 ---
 
-# Title: Enron affair
-Case study on the exploration of a hypothesis about the Enron affair.
-
 # Introduction
 In this post, our goal is to study the famous Enron scandal in 2001 (more information [here](https://en.wikipedia.org/wiki/Enron_scandal)), particularly by exploring the company mails during the period before it has been declared bankrupt.
 We will establish a hypothesis.

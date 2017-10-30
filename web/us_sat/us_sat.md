@@ -3,30 +3,23 @@ layout: template1
 ---
 
 
-# Title: US Scholastic Aptitude Test 
-Case study on some influential factors.
-
 # Introduction
 In this post, we are looking at the SAT (Scholastic Aptitude Test) scores of high schoolers in the US along with other informations.
 We will use <code>Python</code> for the data analysis.
 
-The SAT is a test that high schoolers take in the US before applying to college so it is fairly important. 
+The SAT is a test that high schoolers take in the US before applying to college so it is fairly important.
 Moreover, SAT scores are used to indicate how good a school district is.
 There have been allegations about the SAT being unfair (to certain ethnic groups in the US for example).
 Doing this analysis on New York City data will help shed some light on the fairness of the SAT.
 
-## Credits
-This case study is based on an article of [Vik Paruchuri](https://twitter.com/vikparuchuri "@vikparuchuri").
-I thank him for this example.
-
-## Pre-analysis
-In order to investigate the relation between the SAT and other factors such the ethnic groups or class sizes, we need data. 
+# Pre-analysis
+In order to investigate the relation between the SAT and other factors such the ethnic groups or class sizes, we need data.
 In the Web site of the city of New York, we can find many data sets from which these have been selected:
 - <b>SAT results</b> by school (more information and download [here](https://data.cityofnewyork.us/Education/SAT-Results/f9bf-2cp4)).
 - School <b>demographics</b> (more information and download [here](https://data.cityofnewyork.us/Education/School-Demographics-and-Accountability-Snapshot-20/ihfw-zy9j)).
 - <b>Class size</b> at the school level (more information and download [here](https://data.cityofnewyork.us/Education/2010-2011-Class-Size-School-level-detail/urz7-pzb3)).
 
-In what follows, we have a look on the data sets. 
+In what follows, we have a look on the data sets.
 Then, we clean and unify all the individual datasets into a single one in order to work with the data more easily.
 
 # Data description
@@ -46,11 +39,11 @@ import numpy as np
 data = {}
 ```
 
-## SAT scores by school 
-This data set contains the most recent school level results for New York City on the SAT. 
-Results are available at the school level. 
+## SAT scores by school
+This data set contains the most recent school level results for New York City on the SAT.
+Results are available at the school level.
 
-It is to be noticed that the SAT test is divided into 3 sections, each of which is scored out of 800 points (last 3 columns). 
+It is to be noticed that the SAT test is divided into 3 sections, each of which is scored out of 800 points (last 3 columns).
 The total score is out of 2400.
 
 <b>Full data</b> can be downloaded <a href="{{ site.baseurl }}/dev/us_sat/data/SAT_Results.csv">here</a> in CSV format.
@@ -132,7 +125,7 @@ data["sat_results"].head()
 
 
 ## School demographics
-This data set contains the annual school accounts of NYC public school student populations served by several information from which ethnicity and gender. 
+This data set contains the annual school accounts of NYC public school student populations served by several information from which ethnicity and gender.
 
 <b>Full data</b> can be downloaded <a href="{{ site.baseurl }}/dev/us_sat/data/Demographics_and_Accountability.csv">here</a> in CSV format.
 
@@ -302,7 +295,7 @@ data["demographics"].head()
 
 
 
-## Class size on the school level 
+## Class size on the school level
 This data set contains the average class sizes for each school, by grade and program type (full description [here](https://data.cityofnewyork.us/Education/2010-2011-Class-Size-School-level-detail/urz7-pzb3)).
 
 <b>Full data</b> can be downloaded <a href="{{ site.baseurl }}/dev/us_sat/data/Class_Size-School_level_detail.csv">here</a> in CSV format.
@@ -444,19 +437,19 @@ data["class_size"].head()
 
 # Data cleaning
 Having a consistent dataset will help us do analysis more quickly.
-In order to do this, we’ll first need to find a common column to unify them on. 
+In order to do this, we’ll first need to find a common column to unify them on.
 Looking at the output above, it appears that "DBN" (District Borough Number) might be that common column, as it appears in multiple datasets.
 DBN is a unique code for each school.
 
 However:
-- the "class_size" data set don’t have a DBN field. 
+- the "class_size" data set don’t have a DBN field.
 - there are several rows for each high school in both the "class_size" and the "demographics" data sets.
 - the 3 components of the SAT scores (columns) need to be summed.
 
 Thus, we need to clean these them first.
 
 ## Cleaning each data set
-If we look to the data set "class_size" and to the "DBN" column in the other data sets, it looks like the DBN is actually a combination of "CSD" and "SCHOOL CODE". 
+If we look to the data set "class_size" and to the "DBN" column in the other data sets, it looks like the DBN is actually a combination of "CSD" and "SCHOOL CODE".
 There’s no systematized way to find insights like this in data, and it requires some exploration and playing around to figure out.
 Let us create the column "DBN" now.
 
@@ -601,11 +594,11 @@ data["class_size"].head()
 
 
 
-In order to combine these datasets, we’ll need to find a way to condense data sets like "class_size" to the point where there’s only a single row per high school. 
-If not, there won’t be a way to compare SAT scores to class size. 
-We can accomplish this by first understanding the data better, then by doing some aggregation. 
-With the class_size dataset, it looks like GRADE and PROGRAM TYPE have multiple values for each school. 
-By restricting each field to a single value, we can filter most of the duplicate rows. 
+In order to combine these datasets, we’ll need to find a way to condense data sets like "class_size" to the point where there’s only a single row per high school.
+If not, there won’t be a way to compare SAT scores to class size.
+We can accomplish this by first understanding the data better, then by doing some aggregation.
+With the class_size dataset, it looks like GRADE and PROGRAM TYPE have multiple values for each school.
+By restricting each field to a single value, we can filter most of the duplicate rows.
 
 
 
@@ -706,8 +699,8 @@ data["class_size_ge_09-12"].head()
 
 
 
-Next, we’ll need to condense the demographics dataset. 
-The data was collected for multiple years for the same schools. 
+Next, we’ll need to condense the demographics dataset.
+The data was collected for multiple years for the same schools.
 We will only pick rows where the schoolyear field is the most recent available.
 
 
@@ -879,7 +872,7 @@ data["demographics_2011-2012"].head()
 
 
 
-Now, we compute the total SAT scores from their individual 3 components. 
+Now, we compute the total SAT scores from their individual 3 components.
 
 
 
@@ -1048,7 +1041,7 @@ Each of these items is a potential angle to explore and tell a story about using
 
 
 ## Exploring race and SAT scores
-One angle to investigate involves race and SAT scores. 
+One angle to investigate involves race and SAT scores.
 There is a large correlation difference, and plotting it out will help us see that.
 
 
@@ -1057,7 +1050,7 @@ There is a large correlation difference, and plotting it out will help us see th
 import matplotlib.pyplot as plt
 %matplotlib inline
 
-#2D graph 
+#2D graph
 data_full.corr()["sat_score"][["white_per", "asian_per", "black_per", "hispanic_per"]].plot.bar()
 ```
 
@@ -1069,20 +1062,20 @@ data_full.corr()["sat_score"][["white_per", "asian_per", "black_per", "hispanic_
 
 
 
-![png](output_28_1.png)
+![png](output_27_1.png)
 
 
-It looks like the higher percentages of white and asian students correlate with higher SAT scores, but higher percentages of black and hispanic students correlate with lower SAT scores. 
+It looks like the higher percentages of white and asian students correlate with higher SAT scores, but higher percentages of black and hispanic students correlate with lower SAT scores.
 For hispanic students, this may be due to the fact that there are more recent immigrants who are english learners.
 
 ## Gender differences in SAT scores
-An other angle to explore is the relationship between gender and SAT score. 
-We noted that a higher percentage of females in a school tends to correlate with higher SAT scores. 
+An other angle to explore is the relationship between gender and SAT score.
+We noted that a higher percentage of females in a school tends to correlate with higher SAT scores.
 We can visualize this with a bar graph.
 
 
 ```python
-#2D graph 
+#2D graph
 data_full.corr()["sat_score"][["male_per", "female_per"]].plot.bar()
 ```
 
@@ -1094,7 +1087,7 @@ data_full.corr()["sat_score"][["male_per", "female_per"]].plot.bar()
 
 
 
-![png](output_31_1.png)
+![png](output_30_1.png)
 
 
 To dig more into the correlation, we can make a scatterplot of "female_per" and "sat_score".
@@ -1113,10 +1106,10 @@ data_full.plot.scatter(x='female_per', y='sat_score')
 
 
 
-![png](output_33_1.png)
+![png](output_32_1.png)
 
 
-It looks like there’s a cluster of schools with a high percentage of females, and very high SAT scores (in the top right). 
+It looks like there’s a cluster of schools with a high percentage of females, and very high SAT scores (in the top right).
 We can get the names of the schools in this cluster.
 
 
@@ -1146,6 +1139,9 @@ In this post, we have analysed the schools SAT scores and the relation with some
 However, we explored some angles only in the surface, and could have dived into more.
 Furthermore, we could have combined with other data sets such as schools location informations.
 
+# Credits
+This case study is based on an article of [Vik Paruchuri](https://twitter.com/vikparuchuri "@vikparuchuri").
+I thank him for this example.
 
 
 ```python
