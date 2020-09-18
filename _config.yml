@@ -8,7 +8,7 @@ mode: "prod"
 ####################################################################################################
 # Build settings
 # Gems
-gems:
+plugins:
 - jekyll-paginate
 - jekyll-feed
 
