@@ -6,7 +6,7 @@ html {
 }
 body {
   /* For Fixed Nav Bar */
-  padding-top: 100px;
+  /* padding-top: 100px; */
   /* Margin bottom by footer height */
   margin-bottom: 80px;
 }
