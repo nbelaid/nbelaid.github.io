@@ -1,7 +1,9 @@
 ####################################################################################################
 # dev VS prod (differences)
 ####################################################################################################
-mode: "prod" 
+mode: "prod"
+
+#theme: minima
 
 ####################################################################################################
 # remaining
@@ -73,11 +75,18 @@ markdown: kramdown
 kramdown:
   input: GFM
   syntax_highlighter: rouge
-permalink: /blog/:title
+#permalink: /blog/:title
+#permalink: pretty
 paginate: 5
 
 # Default YAML values (more information on Jekyll's site)
 defaults:
+#  -
+#   scope:
+#      path: "web/"
+#      type: "pages"
+#   values:
+#      permalink: "p/"
   -
     scope:
       path: ""
@@ -101,3 +110,4 @@ exclude:
 
 created-by: Nabil BELAID
 creator-url: http://nbelaid.github.io
+
