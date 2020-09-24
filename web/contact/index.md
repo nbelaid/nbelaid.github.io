@@ -26,7 +26,7 @@ comments: false
                   </div>
                   <div class="form-group">
                         <label for="email" class="control-label">Email</label>
-                        <input id="email" type="email" name="_replyto" class="form-control">
+                        <input id="email" type="email" name="reply_to" class="form-control">
                   </div>
                   <div class="form-group">
                         <label for="msg" class="control-label">Message</label>

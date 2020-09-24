@@ -200,7 +200,7 @@ df.head()
 
 # Prior assumptions and remarks
 
-## Variable(s) à prédire
+## Target variable(s)
 The objective is to predict the number of bikes rented per hour in the city (variable "count"). 
 Moreover, we have two variables "casual" and "registered" (which "count" is the sum of).
 
