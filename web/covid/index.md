@@ -29,7 +29,7 @@ Architecture
 
 We present the architecture and data pipeline briefly.
 First, we connect to the a public API in order to retrieve the data and process it.
-Then, we update a sheet with latest available data in a daily basic.
+Then, we update a sheet with latest available data in a daily basis.
 Finally, the visualization is refreshed with the updated version of the data.
 
 <figure class="text-center">

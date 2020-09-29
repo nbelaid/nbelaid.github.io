@@ -8,7 +8,7 @@ comments: false
 <div class="panel panel-primary shadow1">
       <div class="panel-heading">
         <!-- <h4 class="text-primary">Contact</h4> -->
-        <h3 class="panel-title">Contact</h3>
+        <h1 class="panel-title">Contact</h1>
         <!-- <h3>Contact</h3> -->
         
         For any question or suggestion, please contact me.
