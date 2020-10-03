@@ -5,5 +5,5 @@ cp ../dev/$arg1/$arg1.md ../web/$arg1/index.md
 
 echo '' | cat - ../web/$arg1/index.md > temp && mv temp ../web/$arg1/index.md
 echo '---' | cat - ../web/$arg1/index.md > temp && mv temp ../web/$arg1/index.md
-echo 'layout: template1' | cat - ../web/$arg1/index.md > temp && mv temp ../web/$arg1/index.md
+echo 'layout: template_container' | cat - ../web/$arg1/index.md > temp && mv temp ../web/$arg1/index.md
 echo '---' | cat - ../web/$arg1/index.md > temp && mv temp ../web/$arg1/index.md

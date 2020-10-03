@@ -1,100 +1,33 @@
-<!-- Fixed navbar -->
-<nav class="navbar navbar-default navbar-fixed-top">
-  <div class="container">
+<!--<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm fixed-top">-->
+<div class="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
+<a class="nav-link p-2 text-dark my-0 mr-md-auto font-weight-normal" href="{{ site.baseurl }}/index.html">{{ site.title }}</a>
+<nav class="my-2 my-md-0 mr-md-3">
 
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false"
-        aria-controls="navbar">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-      <a class="navbar-brand" href="{{ site.baseurl }}/index.html">{{ site.title }}</a>
-    </div>
 
-    <div id="navbar-main" class="navbar-collapse collapse">
-      <!-- <ul class="nav navbar-nav">
-      </ul> -->
-      <ul class="nav navbar-nav navbar-right">
+<ul class="nav">
+<li class="nav-item">
+<a class="nav-link p-2 text-dark" href="{{ site.baseurl }}/index.html">Home</a>
+</li>
 
-        <li><a href="{{ site.baseurl }}/index.html">Home</a></li>
 
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Case studies<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-              <!-- <li class="dropdown-header">Case studies</li> -->
-              <!-- <li class="dropdown-header">Previous work</li> -->
-              <!-- <li role="separator" class="divider"></li> -->
-            <!-- based on this link: https://www.dataquest.io/blog/data-science-portfolio-project/ -->
-            <!-- <li><a href="{{ site.baseurl }}/web/us_sat.html">US Scholastic Aptitude Test (python)</a></li> -->
-            <li><a href="{{ site.baseurl }}/web/titanic/titanic">Titanic disaster (Python)</a></li>
-            <li><a href="{{ site.baseurl }}/web/bike_renting/bike_renting">Bike renting (Python)</a></li>
-            <li><a href="{{ site.baseurl }}/web/enron/enron">Enron affair (R)</a></li>
-            <li><a href="{{ site.baseurl }}/web/us_sat/us_sat">US Scholastic Aptitude Test (Python)</a></li>
-          </ul>
-        </li>
 
-        <!-- <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Data<span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li><a href="{{ site.baseurl }}/web/us_sat_data.html">US Scholastic Aptitude Test (Data)</a></li>
-          </ul>
-        </li> -->
+<li class="nav-item dropdown">
+<a class="nav-link p-2 text-dark dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Case studies</a>
+<div class="dropdown-menu  dropdown-menu-right">
+<a class="dropdown-item" href="{{ site.baseurl }}/web/bike_renting">Bike renting (Python)</a>
+<a class="dropdown-item" href="{{ site.baseurl }}/web/enron">Enron affair (R)</a>
+<a class="dropdown-item" href="{{ site.baseurl }}/web/covid">COVID-19 pandemic (DataStudio)</a>
+<a class="dropdown-item" href="{{ site.baseurl }}/web/titanic">Titanic disaster (Python)</a>
+<a class="dropdown-item" href="{{ site.baseurl }}/web/us_sat">US Scholastic Aptitude Test (Python)</a>
 
-        <li><a href="{{ site.baseurl }}/web/about/about.html">About me</a></li>
 
-        <li><a href="{{ site.baseurl }}/web/contact">Contact</a></li>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link p-2 text-dark" href="{{ site.baseurl }}/web/contact">Contact</a>
+</li>
+</ul>
 
-        {% if site.mode == "dev" %}
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-header">ex header 1</li>
-            <li><a href="{{ site.baseurl }}/web/ex.html">ex link 1</a></li>
-            <li role="separator" class="divider"></li>
-            <li class="dropdown-header">ex header 2</li>
-            <li><a href="{{ site.baseurl }}/web/template/template_rstudio.html">template rstudio</a></li>
-            <li><a href="{{ site.baseurl }}/web/template/template_jupyter.html">template jupyter (html)</a></li>
-            <li><a href="{{ site.baseurl }}/web/template/template_jupyter2">template jupyter (md)</a></li>
-            <li><a href="{{ site.baseurl }}/web/template/template_data.html">template data</a></li>
-          </ul>
-        </li>
-        {% endif %}
 
-      </ul>
-    </div>
-
-    <!-- method 1: hierarchy described in the config file -->
-    <!-- <div id="navbar" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav navbar-right">
-        {% for link in site.nav-links %}
-        <li>
-          <a href="{{ site.baseurl }}/{{ link[1] }}">{{ link[0] }}</a>
-        </li>
-        {% endfor %}
-      </ul>
-    </div> -->
-
-    <!-- method 1: hierarchy described here -->
-    <!-- <div id="navbar-main" class="navbar-collapse collapse">
-      <ul class="nav navbar-nav">
-        <li class="dropdown">
-          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Enseignement <span class="caret"></span></a>
-          <ul class="dropdown-menu">
-            <li class="dropdown-header">DU Dataviz</li>
-            <li><a href="visualisation-donnees.html">Visualisation de données - R</a></li>
-            <li><a href="visualisation-donnees-d3.html">Visualisation de données - D3</a></li>
-            <li role="separator" class="divider"></li>
-            <li class="dropdown-header">Master</li>
-            <li><a href="slides/cnam-classif-modeles.html">Classification et Modèles de mélange</a></li>
-          </ul>
-        </li>
-      </ul>
-      <ul class="nav navbar-nav navbar-right">
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
-    </div> -->
-
-  </div>
 </nav>
+</div>

@@ -1,32 +1,72 @@
 ---
-layout: template1
+layout: template_empty
 ---
 
 <!-- setup 3col/9col grid for toc_float and main content  -->
 
-<div class="row">
-    <div class="col-md-4 order-md-2 mb-4">
-        <img src="../asset/icon/analysis.png" alt="Nabil BELAID" style="width:100%">
-          <div class="caption"></div>
-    </div>
-    <div class="col-md-8 order-md-1">
+<div class="jumbotron">
 
-        <h1>Welcome to my page</h1>
-        I am Nabil BELAID, you will find some of my case studies in Data Science in the "Case studies" tab.<br/>
-        If you have any question or suggestion, please contact me <a href="{{ site.baseurl }}/web/contact">here</a>.<br/>
-        <br/>
+    <div class="container">
 
-        <h1>About me</h1>
-        I have a PhD and several years of experience in IT.
-        My expertise in Data Modeling and my passion for Data Analysis led me to specialize in Data Science and Data Engineering.
-        I also have a particular interest in Machine Learning, Cloud solutions and impacting projects.
-        If you would like to learn more about my career, please visit my Linkedin page <a href="{{ site.profile.linkedin }}" target="_blank">here</a>.<br/>
+        <div class="row">
+            <div class="col-md-4 order-md-2 mb-4">
+                <img src="../asset/icon/analysis.png" alt="Nabil BELAID" style="width:85%">
+                  <div class="caption"></div>
+            </div>
+            <div class="col-md-8 order-md-1">
 
+                <h1>Welcome to my page</h1>
+                I am Nabil BELAID, you will find some of my case studies in Data Science if you scroll down
+                or through the "Case studies" drop-down menu above.
+                If you have any question or suggestion, please contact me <a href="{{ site.baseurl }}/web/contact">here</a>.<br/>
+                <br/>
+
+                <h1>About me in short</h1>
+                I have a PhD and several years of experience in IT, with a specialization in Data Science and Data Engineering.
+                I have a particular interest in using Machine Learning, Cloud solutions and Visualization tools, and contribute to the development of impacting projects.
+                If you would like to learn more about my career, please visit my Linkedin page <a href="{{ site.profile.linkedin }}" target="_blank">here</a>.<br/>
+
+            </div>
+        </div>
 
     </div>
 </div>
 
 
+
+
+<div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row">
+          {% include album.html
+            use_case_id="bike_renting"
+            text="Predict the number of bikes that will be rented the next hours."
+          %}
+
+          {% include album.html
+            use_case_id="enron"
+            text="Explore emails from the Enron company to shed light on the famous scandal."
+          %}
+
+          {% include album.html
+            use_case_id="covid"
+            text="Visualize the evolution of the COVID-19 pandemic cases and deaths."
+          %}
+
+          {% include album.html
+            use_case_id="titanic"
+            text="Predict the chances of survival of passengers during the sinking of the famous Titanic."
+          %}
+
+          {% include album.html
+            use_case_id="us_sat"
+            text="Analyse the correlation between school exam results and other factors."
+          %}
+
+       </div>
+    </div>
+  </div>
 
 
 
