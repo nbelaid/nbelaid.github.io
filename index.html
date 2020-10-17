@@ -55,8 +55,13 @@ layout: template_empty
           %}
 
           {% include album.html
+            use_case_id="movie_imdb"
+            text="Analyse and predict movie ratings according to their metadata."
+          %}
+
+          {% include album.html
             use_case_id="titanic"
-            text="Predict the chances of survival of passengers during the sinking of the famous Titanic."
+            text="Predict the chances of survival of passengers after a shipwreck."
           %}
 
           {% include album.html
