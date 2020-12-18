@@ -16,8 +16,8 @@ layout: template_empty
             <div class="col-md-8 order-md-1">
 
                 <h1>Welcome to my page</h1>
-                I am Nabil BELAID, you will find some of my case studies in Data Science if you scroll down
-                or through the "Case studies" drop-down menu above.
+                I am Nabil BELAID, you will find some of my case studies in Data Science if you scroll down in this page.
+                <!--or through the "Case studies" drop-down menu above-->
                 If you have any question or suggestion, please contact me <a href="{{ site.baseurl }}/web/contact">here</a>.<br/>
                 <br/>
 
@@ -67,6 +67,11 @@ layout: template_empty
           {% include album.html
             use_case_id="us_sat"
             text="Analyse the correlation between school exam results and other factors."
+          %}
+
+          {% include album.html
+            use_case_id="regression_asymmetric_error_evaluation"
+            text="Present three approaches to tackle the problem of training a regression model with an asymmetric error evaluation."
           %}
 
        </div>
